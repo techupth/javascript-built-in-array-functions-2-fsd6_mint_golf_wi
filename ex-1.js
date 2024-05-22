@@ -374,3 +374,21 @@ const bills = [
 ];
 
 // Start coding here
+function getTotalBill(bill) {
+  let totalCurrent = 0;
+  for (let i = 0; i < bill.length; i++) {
+    totalCurrent += bill[i].total;
+  }
+  return `Total bill transaction is ${totalCurrent}`;
+}
+
+function getTotalBills(bill) {
+  const totalBills = bill.reduce((acc, cur) => {
+    return acc + cur.total;
+  }, 0);
+
+  return `Total bill transaction is ${totalBills}`;
+}
+console.log(getTotalBill(bills));
+
+console.log(getTotalBills(bills));

@@ -374,4 +374,20 @@ const bills = [
 ];
 
 // Start coding here
-const billMembers;
+function billMembers(bill) {
+  const getBillMember = bill
+    //กรองรายชื่อเฉพาะmember ไม่ใช่ null
+    .filter((billMem) => {
+      if (billMem.member != null) {
+        return billMem;
+      }
+    })
+    //ดึงชื่อสมาชิกเพื่อสร้างArray ใหม่
+    .map((billMem) => {
+      return billMem.member.name;
+    });
+
+  return getBillMember;
+}
+
+console.log(billMembers(bills));

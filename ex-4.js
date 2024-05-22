@@ -374,4 +374,26 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+function totalMembers(member) {
+  const getBillMember = member
+    //กรองรายชื่อเฉพาะmember ไม่ใช่ null
+    .filter((billMem) => {
+      if (billMem.member != null) {
+        return billMem;
+      }
+    })
+    //ดึงชื่อสมาชิกเพื่อสร้างArray ใหม่
+    .map((billMem) => {
+      return billMem.member.name;
+    })
+    //กรองชื่อไม่ซ้ำ
+    .filter((member, index, arr) => {
+      if (arr.indexOf(member) === index) {
+        return member;
+      }
+    });
+
+  return `Unique Members Count: ${getBillMember.length}`;
+}
+
+console.log(totalMembers(bills));

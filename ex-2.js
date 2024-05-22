@@ -375,4 +375,14 @@ const bills = [
 
 // Start coding here
 
-const newBills;
+function getBills(bill) {
+  const getBillMember = bill.filter((billMem) => {
+    if (billMem.member != null) {
+      return billMem;
+    }
+  });
+
+  return getBillMember;
+}
+
+console.log(getBills(bills));
